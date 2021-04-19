@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
 
+import { withTheme } from 'react-native-paper';
+
 export const WelcomeContainer = styled.SafeAreaView`
     flex: 1;
     align-items: center;
@@ -7,29 +9,19 @@ export const WelcomeContainer = styled.SafeAreaView`
     padding: 15px;
 `;
 
-export const MainTitle = styled.Text`
+export const MainTitle = withTheme(styled.Text`
     font-size: 32px;
     font-weight: bold;
     text-align: center;
-    color: ${props => props.theme.colors.heading};
-`;
+    color: ${props => props.theme.colors.text}
+`);
 
-export const SubTitle = styled.Text`
+export const SubTitle = withTheme(styled.Text`
     font-size: 18px;
     text-align: center;
-    color: ${props => props.theme.colors.heading};
-`;
+    color: ${props => props.theme.colors.text}
+`);
 
 export const MainImage = styled.Image`
     height: 284px;
-`;
-
-export const MainButton = styled.TouchableOpacity`
-    background-color: #32B768;
-    justify-content: center;
-    align-items: center;
-    border-radius: 16px;
-    height: 56px;
-    width: 56px;
-    color: #FFF;
 `;

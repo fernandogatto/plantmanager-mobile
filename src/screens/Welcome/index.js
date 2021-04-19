@@ -3,11 +3,14 @@ import React from 'react';
 import { Text } from 'react-native';
 
 import {
+    Button,
+} from 'react-native-paper';
+
+import {
     WelcomeContainer,
     MainTitle,
     SubTitle,
     MainImage,
-    MainButton,
 } from './styles';
 
 import mainImage from '../../assets/watering.png';
@@ -27,12 +30,15 @@ const Welcome = () => {
                 Não esqueça mais de regar suas plantas.
                 Nós vamos ajudar você.
             </SubTitle>
-            
-            <MainButton>
-                <Text>
-                    !
-                </Text>
-            </MainButton>
+
+            <Button
+                icon="arrow-right"
+                mode="contained"
+                dark
+                onPress={() => {}}
+            >
+                Avançar
+            </Button>
         </WelcomeContainer>
     )
 };

@@ -4,9 +4,9 @@ import { StyleSheet, StatusBar, View } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import { ThemeProvider } from 'styled-components';
+import { Provider as PaperProvider } from 'react-native-paper';
 
-import appTheme from './src/theme';
+import theme from './src/theme/theme';
 
 import Navigation from './src/navigation';
 
@@ -15,11 +15,11 @@ export default function App() {
 		<NavigationContainer>
 			<StatusBar barStyle="dark-content" backgroundColor="#FFF" />
 
-			<ThemeProvider theme={appTheme}>
+			<PaperProvider theme={theme}>
 				<View style={styles.container}>
 					<Navigation />
 				</View>
-			</ThemeProvider>
+			</PaperProvider>
 		</NavigationContainer>
 	);
 }
