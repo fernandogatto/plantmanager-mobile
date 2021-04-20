@@ -1,5 +1,5 @@
-import colors from './colors';
+import theme from './theme';
 
-const appTheme = { colors };
+const appTheme = { theme };
 
 export default appTheme;
