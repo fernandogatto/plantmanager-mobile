@@ -4,10 +4,20 @@ import { withTheme } from 'react-native-paper';
 
 export const LogOnContainer = styled.SafeAreaView`
     flex: 1;
-    justify-content: center;
-    align-items: center;
     padding: 15px;
     width: 100%;
+`;
+
+export const KeyboardAvoidingView = styled.KeyboardAvoidingView`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+`;
+
+export const Emoji = styled.Text`
+    font-size: 48px;
+    margin-bottom: 8px;
 `;
 
 export const LogOnTitle = withTheme(styled.Text`

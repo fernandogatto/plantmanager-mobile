@@ -1,10 +1,14 @@
 import React from 'react';
 
-import AppRoutes from './app.routes';
+import { NavigationContainer } from '@react-navigation/native';
+
+import StackRoutes from './stack.routes';
 
 const Navigation = () => {
     return (
-        <AppRoutes />
+        <NavigationContainer>
+            <StackRoutes />
+        </NavigationContainer>
     );
 };
 

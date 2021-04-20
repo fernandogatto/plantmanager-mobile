@@ -2,6 +2,8 @@ import styled from 'styled-components/native';
 
 import { withTheme } from 'react-native-paper';
 
+import { Dimensions } from 'react-native';
+
 export const WelcomeContainer = styled.SafeAreaView`
     flex: 1;
     align-items: center;
@@ -23,5 +25,5 @@ export const SubTitle = withTheme(styled.Text`
 `);
 
 export const MainImage = styled.Image`
-    height: 284px;
+    height: ${Dimensions.get('window').width * 0.7}px;
 `;

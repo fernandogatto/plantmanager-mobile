@@ -1,18 +1,31 @@
 import React from 'react';
 
+import { useNavigation } from '@react-navigation/core';
+
 import {
     Button,
 } from 'react-native-paper';
 
 import {
     GratefullnessContainer,
+    Emoji,
     GratefullnessTitle,
     GratefullnessDescription,
 } from './styles';
 
 const Gratefullness = () => {
+    const navigation = useNavigation();
+
+    const handleForwardNavigation = (screen) => {
+        navigation.navigate(screen);
+    }
+
     return (
         <GratefullnessContainer>
+            <Emoji>
+                👍
+            </Emoji>
+
             <GratefullnessTitle>
                 Tudo certo
             </GratefullnessTitle>
@@ -25,7 +38,7 @@ const Gratefullness = () => {
                 icon="arrow-right"
                 mode="contained"
                 dark
-                onPress={() => {}}
+                onPress={() => handleForwardNavigation('')}
             >
                 Avançar
             </Button>

@@ -10,6 +10,11 @@ export const GratefullnessContainer = styled.SafeAreaView`
     width: 100%;
 `;
 
+export const Emoji = styled.Text`
+    font-size: 48px;
+    margin-bottom: 8px;
+`;
+
 export const GratefullnessTitle = withTheme(styled.Text`
     font-size: 24px;
     font-weight: bold;

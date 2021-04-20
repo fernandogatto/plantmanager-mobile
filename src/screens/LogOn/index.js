@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
 
+import { Platform } from 'react-native';
+
+import { useNavigation } from '@react-navigation/core';
+
 import {
     TextInput,
     Button,
+    IconButton,
 } from 'react-native-paper';
 
 import {
     LogOnContainer,
+    KeyboardAvoidingView,
+    Emoji,
     LogOnTitle,
     FormContainer,
 } from './styles';
 
 const LogOn = () => {
+    const navigation = useNavigation();
+
     const [textInputData, setTextInputData] = useState({
         usuario: '',
     });
@@ -24,6 +33,10 @@ const LogOn = () => {
 
     const handleTextInputChange = (value, name) => {
         setTextInputData({...textInputData, [name]: value.trimLeft()});
+    }
+
+    const handleGoBackNavigation = (screen) => {
+        navigation.navigate(screen);
     }
 
     const handleSubmit = () => {
@@ -41,8 +54,10 @@ const LogOn = () => {
             }
         
             setIsSubmiting(true);
-            
+
             setIsSubmiting(false);
+
+            navigation.navigate('Confirmation');
         } catch(err) {
             console.log('handleSubmit', err);
 
@@ -52,34 +67,56 @@ const LogOn = () => {
 
     return (
         <LogOnContainer>
-            <LogOnTitle>
-                Como podemos {'\n'}
-                chamar você?
-            </LogOnTitle>
+            <IconButton
+                icon="arrow-left"
+                size={24}
+                onPress={() => handleGoBackNavigation('Welcome')}
+            />
 
-            <FormContainer>
-                <TextInput
-                    error={errorTextInputData.usuario}
-                    mode="outlined"
-                    label="Usuário"
-                    value={textInputData.usuario}
-                    onChangeText={value => handleTextInputChange(value, 'usuario')}
-                    style={{
-                        marginBottom: 16,
-                    }}
-                />
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            >
+                {textInputData.usuario === ''
+                    ? (
+                        <Emoji>
+                            😃
+                        </Emoji>
+                    ) : (
+                        <Emoji>
+                            😄
+                        </Emoji>
+                    )
+                }
 
-                <Button
-                    icon="arrow-right"
-                    mode="contained"
-                    dark
-                    onPress={handleSubmit}
-                    disabled={textInputData.usuario === '' || isSubmiting}
-                    loading={isSubmiting}
-                >
-                    Confirmar
-                </Button>
-            </FormContainer>
+                <LogOnTitle>
+                    Como podemos {'\n'}
+                    chamar você?
+                </LogOnTitle>
+
+                <FormContainer>
+                    <TextInput
+                        error={errorTextInputData.usuario}
+                        mode="outlined"
+                        label="Usuário"
+                        value={textInputData.usuario}
+                        onChangeText={value => handleTextInputChange(value, 'usuario')}
+                        style={{
+                            marginBottom: 16,
+                        }}
+                    />
+
+                    <Button
+                        icon="arrow-right"
+                        mode="contained"
+                        dark
+                        onPress={handleSubmit}
+                        disabled={textInputData.usuario === '' || isSubmiting}
+                        loading={isSubmiting}
+                    >
+                        Confirmar
+                    </Button>
+                </FormContainer>
+            </KeyboardAvoidingView>
         </LogOnContainer>
     )
 };
