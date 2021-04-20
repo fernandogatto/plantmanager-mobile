@@ -27,8 +27,10 @@ const StackRoutes = () => {
                     backgroundColor: colors.background
                 }
             }}
-            initialRouteName={'Welcome'}
+            initialRouteName={'Dashboard'}
         >
+            <Stack.Screen name="Dashboard" component={Dashboard} />
+            
             <Stack.Screen name="Welcome" component={Welcome} />
             
             <Stack.Screen name="LogOn" component={LogOn} />
@@ -36,8 +38,6 @@ const StackRoutes = () => {
             <Stack.Screen name="Confirmation" component={Confirmation} />
             
             <Stack.Screen name="Gratefullness" component={Gratefullness} />
-            
-            <Stack.Screen name="Dashboard" component={Dashboard} />
         </Stack.Navigator>
     );
 };

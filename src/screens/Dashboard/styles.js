@@ -34,3 +34,9 @@ export const CategoryDescription = withTheme(styled.Text`
     font-size: 18px;
     color: ${props => props.theme.colors.text};
 `);
+
+export const PlantsContainer = styled.View`
+    flex: 1;
+    padding: 32px 0 30px;
+    width: 100%;
+`;
