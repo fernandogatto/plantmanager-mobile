@@ -7,36 +7,28 @@ export const DashboardContainer = styled.SafeAreaView`
     width: 100%;
 `;
 
-export const HeaderContainer = withTheme(styled.View`
-    background-color: ${props => props.theme.colors.green_light};
-    padding: 32px 15px 20px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-`);
-
-export const WelcomeMessage = withTheme(styled.Text`
-    font-size: 32px;
-    font-weight: 300;
-    color: ${props => props.theme.colors.text};
-`);
-
-export const UserName = withTheme(styled.Text`
-    font-size: 32px;
-    font-weight: bold;
-    color: ${props => props.theme.colors.text};
-`);
-
-export const CategoryContainer = styled.View`
+export const EnvironmentContainer = styled.View`
     padding: 32px 15px 20px;
 `;
 
-export const CategoryDescription = withTheme(styled.Text`
+export const EnvironmentDescription = withTheme(styled.Text`
     font-size: 18px;
     color: ${props => props.theme.colors.text};
 `);
 
 export const PlantsContainer = styled.View`
     flex: 1;
-    padding: 32px 0 30px;
+    padding: 32px 0 40px;
     width: 100%;
 `;
+
+export const EmojiContainer = styled.Text`
+    font-size: 32px;
+    text-align: center;
+`;
+
+export const NotFoundMessage = withTheme(styled.Text`
+    font-size: 18px;
+    color: ${props => props.theme.colors.text};
+    text-align: center;
+`);

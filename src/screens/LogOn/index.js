@@ -35,8 +35,8 @@ const LogOn = () => {
         setTextInputData({...textInputData, [name]: value.trimLeft()});
     }
 
-    const handleGoBackNavigation = (screen) => {
-        navigation.navigate(screen);
+    const handleGoBackNavigation = () => {
+        navigation.goBack();
     }
 
     const handleSubmit = () => {
@@ -70,7 +70,7 @@ const LogOn = () => {
             <IconButton
                 icon="arrow-left"
                 size={24}
-                onPress={() => handleGoBackNavigation('Welcome')}
+                onPress={handleGoBackNavigation}
             />
 
             <KeyboardAvoidingView
