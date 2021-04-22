@@ -7,6 +7,8 @@ import {
 
 import { ActivityIndicator } from 'react-native-paper';
 
+import { useNavigation } from '@react-navigation/core';
+
 import {
     DashboardContainer,
     EnvironmentContainer,
@@ -27,6 +29,8 @@ import LoadingCard from '../../components/LoadingCard';
 import api from '../../common/services/api';
 
 const Dashboard = () => {
+    const navigation = useNavigation();
+
     const [isLoadingEnvironments, setIsLoadingEnvironments] = useState(false);
 
     const [hasErrorEnvironments, setHasErrorEnvironments] = useState(false);
@@ -170,7 +174,7 @@ const Dashboard = () => {
     }
 
     const handlePlantNavigation = (item) => {
-
+        navigation.navigate('ViewPlant', { item });
     }
 
     return (

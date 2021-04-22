@@ -4,6 +4,8 @@ import { View } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+
 import {
     HeaderContainer,
     WelcomeMessage,
@@ -47,11 +49,19 @@ const Header = () => {
                     Olá, 👋
                 </WelcomeMessage>
 
-                {!isLoadingUser && userName !== '' && (
-                    <UserName>
-                        {userName}
-                    </UserName>
-                )}
+                <UserName>
+                    {isLoadingUser && (
+                        <SkeletonPlaceholder>
+                            <SkeletonPlaceholder.Item
+                                width={100}
+                                height={32}
+                                borderRadius={4}
+                            />
+                        </SkeletonPlaceholder>
+                    )}
+
+                    {!isLoadingUser && userName !== '' && userName}
+                </UserName>
             </View>
 
             <UserImage

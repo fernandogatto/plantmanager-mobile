@@ -106,9 +106,6 @@ const LogOn = () => {
                         label="Usuário"
                         value={textInputData.usuario}
                         onChangeText={value => handleTextInputChange(value, 'usuario')}
-                        style={{
-                            marginBottom: 16,
-                        }}
                     />
 
                     <Button
@@ -118,6 +115,10 @@ const LogOn = () => {
                         onPress={handleSubmit}
                         disabled={textInputData.usuario === '' || isSubmiting}
                         loading={isSubmiting}
+                        style={{
+                            marginTop: 16,
+                            width: "100%",
+                        }}
                     >
                         Confirmar
                     </Button>

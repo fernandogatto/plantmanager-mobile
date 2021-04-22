@@ -2,13 +2,11 @@ import styled from 'styled-components/native';
 
 import { withTheme } from 'react-native-paper';
 
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-
 export const HeaderContainer = withTheme(styled.View`
     background-color: ${props => props.theme.colors.green_light};
     padding: 32px 15px 20px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     width: 100%;
     
     flex-direction: row;

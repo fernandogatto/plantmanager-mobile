@@ -14,6 +14,8 @@ import Gratefullness from '../screens/Gratefullness';
 
 import Dashboard from '../screens/Dashboard';
 
+import ViewPlant from '../screens/ViewPlant';
+
 const Stack = createStackNavigator();
 
 const StackRoutes = () => {
@@ -36,6 +38,8 @@ const StackRoutes = () => {
             <Stack.Screen name="Confirmation" component={Confirmation} />
 
             <Stack.Screen name="Dashboard" component={Dashboard} />
+
+            <Stack.Screen name="ViewPlant" component={ViewPlant} />
             
             <Stack.Screen name="Gratefullness" component={Gratefullness} />
         </Stack.Navigator>
