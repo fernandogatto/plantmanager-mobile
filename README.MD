@@ -34,6 +34,7 @@
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.io/)
 - [React Native Paper](https://callstack.github.io/react-native-paper/)
+- [React Native Skeleton Placeholder](https://github.com/chramos/react-native-skeleton-placeholder)
 - [Styled Components](https://styled-components.com/)
 
 ## 📂 Installation <a name="installation"/>
@@ -56,7 +57,7 @@ yarn install
 
 First, you have to install Expo App on your smarthphone.
 
-So, run the following command in order in terminal:
+So, run the following command in terminal:
 
 ```bash
 # Start the server
@@ -64,6 +65,14 @@ expo start
 ```
 
 With Expo open on your smarthphone, scan the QR Code of Expo Server.
+
+**Run API**
+
+Run the following command in another terminal:
+
+```bash
+yarn json-server ./src/common/services/server.json --host YOUR_HOST --port 3333
+```
 
 ## 💻 Project <a name="project"/>
 
