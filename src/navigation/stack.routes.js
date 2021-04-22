@@ -27,15 +27,15 @@ const StackRoutes = () => {
                     backgroundColor: colors.background
                 }
             }}
-            initialRouteName={'Dashboard'}
+            initialRouteName={'Welcome'}
         >
-            <Stack.Screen name="Dashboard" component={Dashboard} />
-            
             <Stack.Screen name="Welcome" component={Welcome} />
             
             <Stack.Screen name="LogOn" component={LogOn} />
             
             <Stack.Screen name="Confirmation" component={Confirmation} />
+
+            <Stack.Screen name="Dashboard" component={Dashboard} />
             
             <Stack.Screen name="Gratefullness" component={Gratefullness} />
         </Stack.Navigator>

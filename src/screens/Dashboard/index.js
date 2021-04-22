@@ -210,7 +210,7 @@ const Dashboard = () => {
                     onPressItem={getEnvironments}
                     type="environment"
                     count={3}
-                    direction="row"
+                    displayFormat="row"
                 />
             </View>
             
@@ -257,7 +257,7 @@ const Dashboard = () => {
                     onPressItem={getPlants}
                     type="plants"
                     count={2}
-                    direction="collumn"
+                    displayFormat="grid"
                 />
             </PlantsContainer>
         </DashboardContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { Dimensions, View } from 'react-native';
 
 import {
     useTheme,
@@ -9,7 +9,7 @@ import {
 
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-const LoadingCard = ({ count, type, direction, isLoading, hasError, onPressItem }) => {
+const LoadingCard = ({ count, type, displayFormat, isLoading, hasError, onPressItem }) => {
     const { roundness } = useTheme();
 
     const renderLoadCard = () => {
@@ -27,7 +27,7 @@ const LoadingCard = ({ count, type, direction, isLoading, hasError, onPressItem 
                 <SkeletonPlaceholder.Item
                     marginBottom={15}
                     marginHorizontal={15}
-                    width="90%"
+                    width={Dimensions.get('window').width * 0.4}
                     height={100}
                     borderRadius={roundness}
                 />
@@ -37,7 +37,7 @@ const LoadingCard = ({ count, type, direction, isLoading, hasError, onPressItem 
     
     return (
         <>
-            {isLoading && direction === 'row' && (
+            {isLoading && displayFormat === 'row' && (
                 <SkeletonPlaceholder>
                     <SkeletonPlaceholder.Item
                         marginHorizontal={15}
@@ -53,13 +53,41 @@ const LoadingCard = ({ count, type, direction, isLoading, hasError, onPressItem 
                 </SkeletonPlaceholder>
             )}
 
-            {isLoading && direction === 'collumn' && (
+            {isLoading && displayFormat === 'collumn' && (
                 <SkeletonPlaceholder>
                     {[...Array(count)].map((e, i) => (
                         <View key={i}>
                             {renderLoadCard()}
                         </View>
                     ))}
+                </SkeletonPlaceholder>
+            )}
+
+            {isLoading && displayFormat === 'grid' && (
+                <SkeletonPlaceholder>
+                    <SkeletonPlaceholder.Item
+                        flexDirection="row"
+                        alignItems="center"
+                        justifyContent="space-between"
+                    >
+                        {[...Array(count)].map((e, i) => (
+                            <View key={i}>
+                                {renderLoadCard()}
+                            </View>
+                        ))}
+                    </SkeletonPlaceholder.Item>
+                    
+                    <SkeletonPlaceholder.Item
+                        flexDirection="row"
+                        alignItems="center"
+                        justifyContent="space-between"
+                    >
+                        {[...Array(count)].map((e, i) => (
+                            <View key={i}>
+                                {renderLoadCard()}
+                            </View>
+                        ))}
+                    </SkeletonPlaceholder.Item>
                 </SkeletonPlaceholder>
             )}
             
