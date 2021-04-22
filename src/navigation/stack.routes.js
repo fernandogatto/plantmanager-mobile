@@ -34,10 +34,10 @@ const StackRoutes = () => {
             <Stack.Screen name="LogOn" component={LogOn} />
             
             <Stack.Screen name="Confirmation" component={Confirmation} />
+
+            <Stack.Screen name="Dashboard" component={Dashboard} />
             
             <Stack.Screen name="Gratefullness" component={Gratefullness} />
-            
-            <Stack.Screen name="Dashboard" component={Dashboard} />
         </Stack.Navigator>
     );
 };

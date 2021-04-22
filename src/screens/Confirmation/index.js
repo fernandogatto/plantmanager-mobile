@@ -18,8 +18,8 @@ import {
 const Confirmation = () => {
     const navigation = useNavigation();
 
-    const handleGoBackNavigation = (screen) => {
-        navigation.navigate(screen);
+    const handleGoBackNavigation = () => {
+        navigation.goBack();
     }
     
     const handleForwardNavigation = (screen) => {
@@ -31,7 +31,7 @@ const Confirmation = () => {
             <IconButton
                 icon="arrow-left"
                 size={24}
-                onPress={() => handleGoBackNavigation('LogOn')}
+                onPress={handleGoBackNavigation}
             />
 
             <ContentContainer>

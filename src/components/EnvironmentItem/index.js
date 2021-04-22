@@ -5,40 +5,36 @@ import { Text } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
 import {
-    CategoryItemContainer,
+    EnvironmentItemContainer,
 } from './styles'
 
-const CategoryItem = ({ item, selectedItem, onPressItem }) => {
+const EnvironmentItem = ({ item, active, onPressItem }) => {
     const { colors } = useTheme();
 
-    const checkIndexIsEven = (element) => {
-        return element % 2 == 0;
-    }
-
     return (
-        <CategoryItemContainer
+        <EnvironmentItemContainer
             onPress={() => onPressItem(item)}
             activeOpacoty={0.8}
             style={{
-                backgroundColor: selectedItem.id === item.id
+                backgroundColor: active
                     ? colors.green_light
                     : colors.shape
             }}
         >
             <Text
                 style={{
-                    color: selectedItem.id === item.id
+                    color: active
                         ? colors.green_dark
                         : colors.text,
-                    fontWeight: selectedItem.id === item.id
+                    fontWeight: active
                         ? 'bold'
                         : 'normal',
                 }}
             >
-                {item.nome}
+                {item.title}
             </Text>
-        </CategoryItemContainer>
+        </EnvironmentItemContainer>
     )
 };
 
-export default CategoryItem;
+export default EnvironmentItem;
