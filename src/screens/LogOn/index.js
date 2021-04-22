@@ -10,6 +10,8 @@ import {
     IconButton,
 } from 'react-native-paper';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
     LogOnContainer,
     KeyboardAvoidingView,
@@ -17,6 +19,8 @@ import {
     LogOnTitle,
     FormContainer,
 } from './styles';
+
+import USER_KEY from '../../common/constants/USER_KEY';
 
 const LogOn = () => {
     const navigation = useNavigation();
@@ -39,7 +43,7 @@ const LogOn = () => {
         navigation.goBack();
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         try {
             const {
                 usuario,
@@ -54,6 +58,8 @@ const LogOn = () => {
             }
         
             setIsSubmiting(true);
+
+            await AsyncStorage.setItem(USER_KEY, usuario);
 
             setIsSubmiting(false);
 

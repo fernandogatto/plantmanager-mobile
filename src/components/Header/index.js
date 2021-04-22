@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { View } from 'react-native';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
     HeaderContainer,
@@ -9,9 +11,35 @@ import {
     UserImage,
 } from './styles';
 
+import USER_KEY from '../../common/constants/USER_KEY';
+
 import userImg from '../../assets/user.png';
 
 const Header = () => {
+    const [isLoadingUser, setIsLoadingUser] = useState(false);
+
+    const [userName, setUserName] = useState('');
+    
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const getUser = async () => {
+        try {
+            setIsLoadingUser(true);
+
+            const response = await AsyncStorage.getItem(USER_KEY);
+
+            setIsLoadingUser(false);
+
+            setUserName(response);
+        } catch(err) {
+            console.log('getUser', err);
+
+            setIsLoadingUser(false);
+        }
+    }
+
     return (
         <HeaderContainer>
             <View>
@@ -19,9 +47,11 @@ const Header = () => {
                     Olá, 👋
                 </WelcomeMessage>
 
-                <UserName>
-                    Fernando
-                </UserName>
+                {!isLoadingUser && userName !== '' && (
+                    <UserName>
+                        {userName}
+                    </UserName>
+                )}
             </View>
 
             <UserImage
