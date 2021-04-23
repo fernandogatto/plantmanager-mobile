@@ -12,11 +12,9 @@ import Confirmation from '../screens/Confirmation';
 
 import Gratefullness from '../screens/Gratefullness';
 
-import Dashboard from '../screens/Dashboard';
-
 import ViewPlant from '../screens/ViewPlant';
 
-import PlantsCollection from '../screens/PlantsCollection';
+import DrawerRoutes from './drawer.routes';
 
 const Stack = createStackNavigator();
 
@@ -31,7 +29,7 @@ const StackRoutes = () => {
                     backgroundColor: colors.background
                 }
             }}
-            initialRouteName={'PlantsCollection'}
+            initialRouteName={'Welcome'}
         >
             <Stack.Screen name="Welcome" component={Welcome} />
             
@@ -39,13 +37,13 @@ const StackRoutes = () => {
             
             <Stack.Screen name="Confirmation" component={Confirmation} />
 
-            <Stack.Screen name="Dashboard" component={Dashboard} />
+            <Stack.Screen name="Dashboard" component={DrawerRoutes} />
 
             <Stack.Screen name="ViewPlant" component={ViewPlant} />
             
             <Stack.Screen name="Gratefullness" component={Gratefullness} />
 
-            <Stack.Screen name="PlantsCollection" component={PlantsCollection} />
+            <Stack.Screen name="PlantsCollection" component={DrawerRoutes} />
         </Stack.Navigator>
     );
 };

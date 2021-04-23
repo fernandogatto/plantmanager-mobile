@@ -4,7 +4,7 @@ import { withTheme } from 'react-native-paper';
 
 export const LogOnContainer = styled.SafeAreaView`
     flex: 1;
-    padding: 15px;
+    padding: 32px 15px 20px;
     width: 100%;
 `;
 

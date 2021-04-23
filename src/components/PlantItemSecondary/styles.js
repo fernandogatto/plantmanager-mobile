@@ -22,7 +22,7 @@ export const ItemTitle = withTheme(styled.Text`
     color: ${props => props.theme.colors.text};
     font-size: 18px;
     font-weight: bold;
-    margin-left: 8px;
+    margin-left: 6px;
 `);
 
 export const TimeWateringContainer = styled.View`

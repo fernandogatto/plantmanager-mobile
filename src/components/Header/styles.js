@@ -8,23 +8,18 @@ export const HeaderContainer = withTheme(styled.View`
     
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
 `);
 
 export const PrimaryMessage = withTheme(styled.Text`
     font-size: 32px;
     font-weight: 300;
     color: ${props => props.theme.colors.text};
+    text-align: right;
 `);
 
 export const SecondaryMessage = withTheme(styled.Text`
     font-size: 32px;
     font-weight: bold;
     color: ${props => props.theme.colors.text};
+    text-align: right;
 `);
-
-export const UserImage = styled.Image`
-    height: 80px;
-    width: 80px;
-    border-radius: 40px;
-`;

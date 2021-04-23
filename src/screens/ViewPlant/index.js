@@ -8,7 +8,7 @@ import {
     Text,
 } from 'react-native-paper';
 
-import { useNavigation, useRoute } from '@react-navigation/core';
+import { useRoute } from '@react-navigation/core';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -34,9 +34,7 @@ import waterdrop from '../../assets/waterdrop.png';
 
 import api from '../../common/services/api';
 
-const ViewPlant = () => {
-    const navigation = useNavigation();
-
+const ViewPlant = ({ navigation }) => {
     const route = useRoute();
 
     const { item } = route.params;

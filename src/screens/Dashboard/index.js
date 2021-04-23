@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import {
     FlatList,
-    View,
 } from 'react-native';
 
 import { ActivityIndicator } from 'react-native-paper';
-
-import { useNavigation } from '@react-navigation/core';
 
 import {
     DashboardContainer,
@@ -29,10 +26,8 @@ import LoadingCard from '../../components/LoadingCard';
 
 import api from '../../common/services/api';
 
-const Dashboard = () => {
-    const navigation = useNavigation();
-
-    const [isLoadingEnvironments, setIsLoadingEnvironments] = useState(false);
+const Dashboard = ({ navigation }) => {
+    const [isLoadingEnvironments, setIsLoadingEnvironments] = useState(true);
 
     const [hasErrorEnvironments, setHasErrorEnvironments] = useState(false);
 
@@ -40,7 +35,7 @@ const Dashboard = () => {
 
     const [selectedEnvironment, setSelectedEnvironment] = useState({});
 
-    const [isLoadingPlants, setIsLoadingPlants] = useState(false);
+    const [isLoadingPlants, setIsLoadingPlants] = useState(true);
 
     const [hasErrorPlants, setHasErrorPlants] = useState(false);
 
@@ -180,7 +175,10 @@ const Dashboard = () => {
 
     return (
         <DashboardContainer>
-            <Header type="dashboard" />
+            <Header
+                type="dashboard"
+                navigation={navigation}
+            />
 
             <EnvironmentContainer>
                 <EnvironmentDescription>

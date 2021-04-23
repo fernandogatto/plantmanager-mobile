@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import { Platform } from 'react-native';
 
-import { useNavigation } from '@react-navigation/core';
-
 import {
     TextInput,
     Button,
@@ -22,9 +20,7 @@ import {
 
 import USER_KEY from '../../common/constants/USER_KEY';
 
-const LogOn = () => {
-    const navigation = useNavigation();
-
+const LogOn = ({ navigation }) => {
     const [textInputData, setTextInputData] = useState({
         usuario: '',
     });

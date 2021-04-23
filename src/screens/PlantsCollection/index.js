@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { FlatList } from 'react-native';
 
-import { ActivityIndicator, IconButton, useTheme } from 'react-native-paper';
-
-import { useNavigation } from '@react-navigation/core';
+import { IconButton, useTheme } from 'react-native-paper';
 
 import moment from 'moment';
 
@@ -29,12 +27,10 @@ import waterdrop from '../../assets/waterdrop.png';
 
 import api from '../../common/services/api';
 
-const PlantsCollection = () => {
-    const navigation = useNavigation();
-
+const PlantsCollection = ({ navigation }) => {
     const { colors } = useTheme();
 
-    const [isLoadingPlants, setIsLoadingPlants] = useState(false);
+    const [isLoadingPlants, setIsLoadingPlants] = useState(true);
     
     const [hasErrorPlants, setHasErrorPlants] = useState(false);
     
@@ -43,12 +39,6 @@ const PlantsCollection = () => {
     const [nextWatering, setNextWatering] = useState('');
 
     const [showNote, setShowNote] = useState(false);
-
-    const [isLoadingPage, setIsLoadingPage] = useState(false);
-
-    const [isLoadedAllPlants, setIsLoadedAllPlants] = useState(false);
-    
-    const [page, setPage] = useState(1);
 
     useEffect(() => {
         getPlantsCollection();
@@ -99,21 +89,16 @@ const PlantsCollection = () => {
         }
     }
 
-    const handleGetMorePlants = (distance) => {
-        if(distance < 1) return;
-
-        setIsLoadingPage(true);
-
-        setPage(page + 1);
-    }
-
     const handlePlantNavigation = (item) => {
         navigation.navigate('ViewPlant', { item });
     }
 
     return (
         <PlantsCollectionContainer>
-            <Header type="collection" />
+            <Header
+                type="collection"
+                navigation={navigation}
+            />
 
             <MyCollectionContainer>
                 {!isLoadingPlants && !hasErrorPlants && plants && plants.length > 0 && showNote && (
@@ -162,15 +147,6 @@ const PlantsCollection = () => {
                                 onPressItem={(element) => handlePlantNavigation(element)}
                             />
                         )}
-                        // onEndReachedThreshold={0.1}
-                        // onEndReached={({ distance }) => (
-                        //     handleGetMorePlants(distance)
-                        // )}
-                        // ListFooterComponent={
-                        //     !isLoadedAllPlants && isLoadingPage
-                        //         ? <ActivityIndicator />
-                        //         : <></>
-                        // }
                     />
                 )}
 

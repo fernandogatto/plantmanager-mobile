@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { View } from 'react-native';
 
+import { IconButton } from 'react-native-paper';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
@@ -10,14 +12,11 @@ import {
     HeaderContainer,
     PrimaryMessage,
     SecondaryMessage,
-    UserImage,
 } from './styles';
 
 import USER_KEY from '../../common/constants/USER_KEY';
 
-import userImg from '../../assets/user.png';
-
-const Header = ({ type }) => {
+const Header = ({ type, navigation }) => {
     const [isLoadingUser, setIsLoadingUser] = useState(false);
 
     const [userName, setUserName] = useState('');
@@ -44,12 +43,22 @@ const Header = ({ type }) => {
         }
     }
 
+    const handleOpenDrawer = () => {
+        navigation.toggleDrawer();
+    }
+
     return (
         <HeaderContainer>
+            <IconButton
+                icon="menu"
+                size={24}
+                onPress={() => handleOpenDrawer()}
+            />
+
             {type === 'dashboard' && (
                 <View>
                     <PrimaryMessage>
-                        Olá, 👋
+                        👋 Olá,
                     </PrimaryMessage>
 
                     <SecondaryMessage>
@@ -79,11 +88,6 @@ const Header = ({ type }) => {
                     </SecondaryMessage>
                 </View>
             )}
-
-            <UserImage
-                source={userImg}
-                resizeMode="cover"
-            />
         </HeaderContainer>
     )
 }
