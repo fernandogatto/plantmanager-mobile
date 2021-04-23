@@ -10,8 +10,8 @@ export const DashboardContainer = withTheme(styled.SafeAreaView`
 
 export const EnvironmentContainer = withTheme(styled.View`
     padding: 32px 15px 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: ${props => props.theme.roundness * 2}px;
+    border-top-right-radius: ${props => props.theme.roundness * 2}px;
     background-color: ${props => props.theme.colors.background};
 `);
 
@@ -26,7 +26,7 @@ export const EnvironmentsView = withTheme(styled.View`
 
 export const PlantsContainer = withTheme(styled.View`
     flex: 1;
-    padding: 32px 0 40px;
+    padding: 32px 0 15px;
     width: 100%;
     background-color: ${props => props.theme.colors.background};
 `);

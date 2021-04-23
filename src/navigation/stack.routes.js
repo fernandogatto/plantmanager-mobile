@@ -33,8 +33,6 @@ const StackRoutes = () => {
             }}
             initialRouteName={'PlantsCollection'}
         >
-            <Stack.Screen name="PlantsCollection" component={PlantsCollection} />
-
             <Stack.Screen name="Welcome" component={Welcome} />
             
             <Stack.Screen name="LogOn" component={LogOn} />
@@ -46,6 +44,8 @@ const StackRoutes = () => {
             <Stack.Screen name="ViewPlant" component={ViewPlant} />
             
             <Stack.Screen name="Gratefullness" component={Gratefullness} />
+
+            <Stack.Screen name="PlantsCollection" component={PlantsCollection} />
         </Stack.Navigator>
     );
 };

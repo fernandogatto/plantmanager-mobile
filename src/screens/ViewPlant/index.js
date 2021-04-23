@@ -89,7 +89,7 @@ const ViewPlant = () => {
 
             const data = {
                 id: _favoritePlants + _favoritePlants,
-                plant_id: item.id,
+                plant: item,
                 date_time_notification: moment(dateTime).format('HH:mm'),
             };
 

@@ -7,11 +7,14 @@ export const PlantsCollectionContainer = withTheme(styled.View`
     background-color: ${props => props.theme.colors.shape};
 `);
 
-export const MyCollectionContainer = withTheme(styled.ScrollView`
+export const MyCollectionContainer = withTheme(styled.View`
+    flex: 1;
+    flex-direction: column;
+    
     background-color: ${props => props.theme.colors.background};
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    padding: 32px 15px 20px;
+    border-top-left-radius: ${props => props.theme.roundness * 2}px;
+    border-top-right-radius: ${props => props.theme.roundness * 2}px;
+    padding: 32px 15px 15px;
 `);
 
 export const WaterNotationContainer = withTheme(styled.View`
@@ -19,7 +22,7 @@ export const WaterNotationContainer = withTheme(styled.View`
     align-items: center;
 
     background-color: ${props => props.theme.colors.blue_light};
-    border-radius: 20px;
+    border-radius: ${props => props.theme.roundness * 2}px;
     padding: 10px;
 `);
 

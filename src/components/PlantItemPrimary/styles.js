@@ -8,7 +8,7 @@ export const PlantItemContainer = withTheme(styled.TouchableOpacity`
     align-items: center;
     padding: 15px 0;
     margin: 0 15px 15px;
-    border-radius: ${props => props.theme.roundness}px;
+    border-radius: ${props => props.theme.roundness * 2}px;
     background-color: ${props => props.theme.colors.shape};
 `);
 

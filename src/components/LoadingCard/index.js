@@ -19,7 +19,7 @@ const LoadingCard = ({ count, type, displayFormat, isLoading, hasError, onPressI
                     marginRight={30}
                     width={80}
                     height={50}
-                    borderRadius={roundness}
+                    borderRadius={roundness * 2}
                 />
             )
         } else if(type === 'plants') {
@@ -29,7 +29,7 @@ const LoadingCard = ({ count, type, displayFormat, isLoading, hasError, onPressI
                     marginHorizontal={15}
                     width={Dimensions.get('window').width * 0.4}
                     height={100}
-                    borderRadius={roundness}
+                    borderRadius={roundness * 2}
                 />
             )
         } else if(type === 'collection') {
@@ -38,7 +38,7 @@ const LoadingCard = ({ count, type, displayFormat, isLoading, hasError, onPressI
                     marginBottom={15}
                     width={Dimensions.get('window').width * 0.9}
                     height={100}
-                    borderRadius={roundness}
+                    borderRadius={roundness * 2}
                 />
             )
         }

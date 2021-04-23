@@ -38,8 +38,8 @@ export const TimeContainer = withTheme(styled.View`
     padding: 30px 15px ${getBottomSpace() || 20}px;
     align-items: center;
     background-color: ${props => props.theme.colors.background};
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: ${props => props.theme.roundness * 2}px;
+    border-top-right-radius: ${props => props.theme.roundness * 2}px;
 `);
 
 export const WaterNotationContainer = withTheme(styled.View`
@@ -47,7 +47,7 @@ export const WaterNotationContainer = withTheme(styled.View`
     align-items: center;
 
     background-color: ${props => props.theme.colors.blue_light};
-    border-radius: 20px;
+    border-radius: ${props => props.theme.roundness * 2}px;
     padding: 10px;
     position: relative;
     bottom: 60px;
