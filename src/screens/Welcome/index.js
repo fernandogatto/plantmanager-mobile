@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/core';
-
 import {
     Button,
 } from 'react-native-paper';
@@ -15,9 +13,7 @@ import {
 
 import mainImage from '../../assets/watering.png';
 
-const Welcome = () => {
-    const navigation = useNavigation();
-
+const Welcome = ({ navigation }) => {
     const handleForwardNavigation = (screen) => {
         navigation.navigate(screen);
     }

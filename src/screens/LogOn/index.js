@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import { Platform } from 'react-native';
 
-import { useNavigation } from '@react-navigation/core';
-
 import {
     TextInput,
     Button,
     IconButton,
 } from 'react-native-paper';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
     LogOnContainer,
@@ -18,9 +18,9 @@ import {
     FormContainer,
 } from './styles';
 
-const LogOn = () => {
-    const navigation = useNavigation();
+import USER_KEY from '../../common/constants/USER_KEY';
 
+const LogOn = ({ navigation }) => {
     const [textInputData, setTextInputData] = useState({
         usuario: '',
     });
@@ -39,7 +39,7 @@ const LogOn = () => {
         navigation.goBack();
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         try {
             const {
                 usuario,
@@ -54,6 +54,8 @@ const LogOn = () => {
             }
         
             setIsSubmiting(true);
+
+            await AsyncStorage.setItem(USER_KEY, usuario);
 
             setIsSubmiting(false);
 
@@ -100,9 +102,6 @@ const LogOn = () => {
                         label="Usuário"
                         value={textInputData.usuario}
                         onChangeText={value => handleTextInputChange(value, 'usuario')}
-                        style={{
-                            marginBottom: 16,
-                        }}
                     />
 
                     <Button
@@ -112,6 +111,10 @@ const LogOn = () => {
                         onPress={handleSubmit}
                         disabled={textInputData.usuario === '' || isSubmiting}
                         loading={isSubmiting}
+                        style={{
+                            marginTop: 16,
+                            width: "100%",
+                        }}
                     >
                         Confirmar
                     </Button>

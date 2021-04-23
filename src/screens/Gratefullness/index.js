@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/core';
-
 import {
     Button,
 } from 'react-native-paper';
@@ -13,9 +11,7 @@ import {
     GratefullnessDescription,
 } from './styles';
 
-const Gratefullness = () => {
-    const navigation = useNavigation();
-
+const Gratefullness = ({ navigation }) => {
     const handleForwardNavigation = (screen) => {
         navigation.navigate(screen);
     }
@@ -38,7 +34,7 @@ const Gratefullness = () => {
                 icon="arrow-right"
                 mode="contained"
                 dark
-                onPress={() => handleForwardNavigation('')}
+                onPress={() => handleForwardNavigation('PlantsCollection')}
             >
                 Avançar
             </Button>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import {
     FlatList,
-    View,
 } from 'react-native';
 
 import { ActivityIndicator } from 'react-native-paper';
@@ -11,6 +10,7 @@ import {
     DashboardContainer,
     EnvironmentContainer,
     EnvironmentDescription,
+    EnvironmentsView,
     PlantsContainer,
     EmojiContainer,
     NotFoundMessage,
@@ -26,8 +26,8 @@ import LoadingCard from '../../components/LoadingCard';
 
 import api from '../../common/services/api';
 
-const Dashboard = () => {
-    const [isLoadingEnvironments, setIsLoadingEnvironments] = useState(false);
+const Dashboard = ({ navigation }) => {
+    const [isLoadingEnvironments, setIsLoadingEnvironments] = useState(true);
 
     const [hasErrorEnvironments, setHasErrorEnvironments] = useState(false);
 
@@ -35,7 +35,7 @@ const Dashboard = () => {
 
     const [selectedEnvironment, setSelectedEnvironment] = useState({});
 
-    const [isLoadingPlants, setIsLoadingPlants] = useState(false);
+    const [isLoadingPlants, setIsLoadingPlants] = useState(true);
 
     const [hasErrorPlants, setHasErrorPlants] = useState(false);
 
@@ -170,12 +170,15 @@ const Dashboard = () => {
     }
 
     const handlePlantNavigation = (item) => {
-
+        navigation.navigate('ViewPlant', { item });
     }
 
     return (
         <DashboardContainer>
-            <Header />
+            <Header
+                type="dashboard"
+                navigation={navigation}
+            />
 
             <EnvironmentContainer>
                 <EnvironmentDescription>
@@ -184,7 +187,7 @@ const Dashboard = () => {
                 </EnvironmentDescription>
             </EnvironmentContainer>
 
-            <View>
+            <EnvironmentsView>
                 {!isLoadingEnvironments && !hasErrorEnvironments && environments && environments.length > 0 && (
                     <FlatList
                         data={environments}
@@ -212,7 +215,7 @@ const Dashboard = () => {
                     count={3}
                     displayFormat="row"
                 />
-            </View>
+            </EnvironmentsView>
             
             <PlantsContainer>
                 {!isLoadingPlants && !hasErrorPlants && filteredPlants && filteredPlants.length === 0 && (

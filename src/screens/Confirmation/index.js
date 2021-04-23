@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/core';
-
 import {
     Button,
     IconButton,
@@ -15,9 +13,7 @@ import {
     ConfirmationDescription,
 } from './styles';
 
-const Confirmation = () => {
-    const navigation = useNavigation();
-
+const Confirmation = ({ navigation }) => {
     const handleGoBackNavigation = () => {
         navigation.goBack();
     }
