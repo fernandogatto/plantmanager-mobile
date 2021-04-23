@@ -38,7 +38,7 @@ const Gratefullness = () => {
                 icon="arrow-right"
                 mode="contained"
                 dark
-                onPress={() => handleForwardNavigation('')}
+                onPress={() => handleForwardNavigation('PlantsCollection')}
             >
                 Avançar
             </Button>

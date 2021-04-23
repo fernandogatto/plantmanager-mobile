@@ -4,9 +4,8 @@ import { withTheme } from 'react-native-paper';
 
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 
-export const PlantViewContainer = withTheme(styled.View`
+export const PlantViewContainer = withTheme(styled.ScrollView`
     flex: 1;
-    justify-content: space-between;
     background-color: ${props => props.theme.colors.shape};
 `)
 
@@ -32,6 +31,7 @@ export const PlantDescription = withTheme(styled.Text`
     font-size: 18px;
     color: ${props => props.theme.colors.text};
     text-align: center;
+    padding-bottom: 30px;
 `);
 
 export const TimeContainer = withTheme(styled.View`
@@ -45,7 +45,6 @@ export const TimeContainer = withTheme(styled.View`
 export const WaterNotationContainer = withTheme(styled.View`
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
 
     background-color: ${props => props.theme.colors.blue_light};
     border-radius: 20px;

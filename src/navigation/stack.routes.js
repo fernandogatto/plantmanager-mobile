@@ -16,6 +16,8 @@ import Dashboard from '../screens/Dashboard';
 
 import ViewPlant from '../screens/ViewPlant';
 
+import PlantsCollection from '../screens/PlantsCollection';
+
 const Stack = createStackNavigator();
 
 const StackRoutes = () => {
@@ -29,8 +31,10 @@ const StackRoutes = () => {
                     backgroundColor: colors.background
                 }
             }}
-            initialRouteName={'Welcome'}
+            initialRouteName={'PlantsCollection'}
         >
+            <Stack.Screen name="PlantsCollection" component={PlantsCollection} />
+
             <Stack.Screen name="Welcome" component={Welcome} />
             
             <Stack.Screen name="LogOn" component={LogOn} />

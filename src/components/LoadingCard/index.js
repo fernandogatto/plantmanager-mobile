@@ -32,6 +32,15 @@ const LoadingCard = ({ count, type, displayFormat, isLoading, hasError, onPressI
                     borderRadius={roundness}
                 />
             )
+        } else if(type === 'collection') {
+            return (
+                <SkeletonPlaceholder.Item
+                    marginBottom={15}
+                    width={Dimensions.get('window').width * 0.9}
+                    height={100}
+                    borderRadius={roundness}
+                />
+            )
         }
     }
     

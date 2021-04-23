@@ -3,10 +3,7 @@ import styled from 'styled-components/native';
 import { withTheme } from 'react-native-paper';
 
 export const HeaderContainer = withTheme(styled.View`
-    background-color: ${props => props.theme.colors.green_light};
     padding: 32px 15px 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     width: 100%;
     
     flex-direction: row;
@@ -14,13 +11,13 @@ export const HeaderContainer = withTheme(styled.View`
     align-items: center;
 `);
 
-export const WelcomeMessage = withTheme(styled.Text`
+export const PrimaryMessage = withTheme(styled.Text`
     font-size: 32px;
     font-weight: 300;
     color: ${props => props.theme.colors.text};
 `);
 
-export const UserName = withTheme(styled.Text`
+export const SecondaryMessage = withTheme(styled.Text`
     font-size: 32px;
     font-weight: bold;
     color: ${props => props.theme.colors.text};

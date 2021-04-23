@@ -55,7 +55,7 @@ const ViewPlant = () => {
 
     const getFavoritePlants = async () => {
         try {
-            const response = await api.get('/favorite_plants');
+            const response = await api.get('/plants_collection');
 
             setFavoritePlants(response);
         } catch(err) {
@@ -95,7 +95,7 @@ const ViewPlant = () => {
 
             setIsSubmiting(true);
 
-            await api.post('/favorite_plants', data);
+            await api.post('/plants_collection', data);
 
             setIsSubmiting(false);
 

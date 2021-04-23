@@ -13,6 +13,7 @@ import {
     DashboardContainer,
     EnvironmentContainer,
     EnvironmentDescription,
+    EnvironmentsView,
     PlantsContainer,
     EmojiContainer,
     NotFoundMessage,
@@ -179,7 +180,7 @@ const Dashboard = () => {
 
     return (
         <DashboardContainer>
-            <Header />
+            <Header type="dashboard" />
 
             <EnvironmentContainer>
                 <EnvironmentDescription>
@@ -188,7 +189,7 @@ const Dashboard = () => {
                 </EnvironmentDescription>
             </EnvironmentContainer>
 
-            <View>
+            <EnvironmentsView>
                 {!isLoadingEnvironments && !hasErrorEnvironments && environments && environments.length > 0 && (
                     <FlatList
                         data={environments}
@@ -216,7 +217,7 @@ const Dashboard = () => {
                     count={3}
                     displayFormat="row"
                 />
-            </View>
+            </EnvironmentsView>
             
             <PlantsContainer>
                 {!isLoadingPlants && !hasErrorPlants && filteredPlants && filteredPlants.length === 0 && (

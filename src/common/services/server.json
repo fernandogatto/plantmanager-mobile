@@ -1,5 +1,11 @@
 {
-  "favorite_plants": [],
+  "plants_collection": [
+    {
+      "id": 1,
+      "plant_id": 1,
+      "date_time_notification": "19:57"
+    }
+  ],
   "plants_water_frequencies": [
     {
       "key": "day",
