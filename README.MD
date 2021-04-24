@@ -24,7 +24,7 @@
 ## 🔗 Table of contents
 - [Technologies](#technologies)
 - [Installation](#installation)
-- [Starting](#starting)
+- [Getting start](#start)
 - [Project](#project)
 - [Contribute](#contribute)
 - [License](#license)
@@ -53,7 +53,7 @@ git clone https://github.com/fernandogatto/plantmanager-mobile.git
 yarn install
 ```
 
-## 🚀 Starting <a name="starting"/>
+## 🚀 Getting start <a name="start"/>
 
 First, you have to install Expo App on your smarthphone.
 
@@ -68,10 +68,16 @@ With Expo open on your smarthphone, scan the QR Code of Expo Server.
 
 **Run API**
 
-Run the following command in another terminal:
+First, make sure to enter your IP address in following file:
 
 ```bash
-yarn json-server ./src/common/services/server.json --host YOUR_HOST --port 3333
+./src/common/constants/IP_ADDRESS.js
+```
+
+So, run the following command in another terminal:
+
+```bash
+yarn json-server ./src/common/services/server.json --host YOUR_IP_ADDRESS --port 3333
 ```
 
 ## 💻 Project <a name="project"/>
