@@ -21,14 +21,17 @@ const Drawer = ({ navigation, state }) => {
     const itensMenu = [
         {
             title: 'Início',
+            icon: 'home',
             routerName: 'Dashboard',
         },
         {
             title: 'Minhas Plantas',
+            icon: 'flower',
             routerName: 'PlantsCollection',
         },
         {
             title: 'Sair',
+            icon: 'logout',
             routerName: 'LogOff',
         },
     ];
