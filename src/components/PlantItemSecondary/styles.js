@@ -38,3 +38,10 @@ export const TimeText = withTheme(styled.Text`
     color: ${props => props.theme.colors.text};
     font-size: 16px;
 `);
+
+export const RemoveContainer = withTheme(styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+`);
