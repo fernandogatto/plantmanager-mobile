@@ -39,27 +39,11 @@ const ViewPlant = ({ navigation }) => {
 
     const { item } = route.params;
 
-    const [favoritePlants, setFavoritePlants] = useState([]);
-
     const [dateTime, setDateTime] = useState(new Date());
 
     const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios');
 
     const [isSubmiting, setIsSubmiting] = useState(false);
-
-    useEffect(() => {
-        getFavoritePlants();
-    }, []);
-
-    const getFavoritePlants = async () => {
-        try {
-            const response = await api.get('/plants_collection');
-
-            setFavoritePlants(response);
-        } catch(err) {
-            console.log('getFavoritePlants', err);
-        }
-    }
 
     const handleGoBackNavigation = () => {
         navigation.goBack();
@@ -83,10 +67,8 @@ const ViewPlant = ({ navigation }) => {
 
     const handleSubmit = async () => {
         try {
-            const _favoritePlants = favoritePlants.length + 1;
-
             const data = {
-                id: _favoritePlants + _favoritePlants,
+                id: Math.floor(Math.random() * 999999), // random number
                 plant: item,
                 date_time_notification: moment(dateTime).format('HH:mm'),
             };
