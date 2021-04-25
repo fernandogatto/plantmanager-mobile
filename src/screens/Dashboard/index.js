@@ -170,7 +170,7 @@ const Dashboard = ({ navigation }) => {
     }
 
     const handlePlantNavigation = (item) => {
-        navigation.navigate('ViewPlant', { item });
+        navigation.navigate('ViewPlant', { plant: item, isUpdate: false });
     }
 
     return (

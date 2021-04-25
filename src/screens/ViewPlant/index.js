@@ -37,13 +37,29 @@ import api from '../../common/services/api';
 const ViewPlant = ({ navigation }) => {
     const route = useRoute();
 
-    const { item } = route.params;
+    const { plant, isUpdate, collection } = route.params;
 
     const [dateTime, setDateTime] = useState(new Date());
 
     const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios');
 
     const [isSubmiting, setIsSubmiting] = useState(false);
+
+    useEffect(() => {
+        if(isUpdate) {
+            changeDateTime();
+        }
+    }, []);
+
+    const changeDateTime = () => {
+        const collectionTime = collection.date_time_notification;
+
+        const splitTime = collectionTime.split(':'); // [time, minute]
+
+        const _dateTime = dateTime.setHours(splitTime[0], splitTime[1]);
+
+        setDateTime(new Date(_dateTime));
+    }
 
     const handleGoBackNavigation = () => {
         navigation.goBack();
@@ -68,14 +84,18 @@ const ViewPlant = ({ navigation }) => {
     const handleSubmit = async () => {
         try {
             const data = {
-                id: Math.floor(Math.random() * 999999), // random number
-                plant: item,
+                id: isUpdate
+                    ? collection.id
+                    : Math.floor(Math.random() * 999999), // random number
+                plant,
                 date_time_notification: moment(dateTime).format('HH:mm'),
             };
 
             setIsSubmiting(true);
 
-            await api.post('/plants_collection', data);
+            isUpdate
+                ? await api.put(`/plants_collection/${collection.id}`, data)
+                : await api.post('/plants_collection', data);
 
             setIsSubmiting(false);
 
@@ -100,17 +120,17 @@ const ViewPlant = ({ navigation }) => {
 
                 <HeaderPlantContent>
                     <SvgFromUri
-                        uri={item.photo}
+                        uri={plant.photo}
                         height={120}
                         width={120}
                     />
 
                     <PlantName>
-                        {item.name}
+                        {plant.name}
                     </PlantName>
 
                     <PlantDescription>
-                        {item.about}
+                        {plant.about}
                     </PlantDescription>
                 </HeaderPlantContent>
             </HeaderPlant>
@@ -122,7 +142,7 @@ const ViewPlant = ({ navigation }) => {
                     />
 
                     <WaterNotationText>
-                        {item.water_tips}
+                        {plant.water_tips}
                     </WaterNotationText>
                 </WaterNotationContainer>
 
@@ -170,7 +190,7 @@ const ViewPlant = ({ navigation }) => {
                             width: "100%",
                         }}
                     >
-                        Cadastrar
+                        {isUpdate ? 'Atualizar' : 'Cadastrar'}
                     </Button>
                 </FormContainer>
             </TimeContainer>

@@ -102,7 +102,11 @@ const PlantsCollection = ({ navigation }) => {
     }
 
     const handlePlantNavigation = (item) => {
-        navigation.navigate('ViewPlant', { item });
+        navigation.navigate('ViewPlant', {
+            plant: item.plant,
+            isUpdate: true,
+            collection: item,
+        });
     }
 
     const handleConfirmDelete = (item) => {
