@@ -62,7 +62,7 @@ const LoadingCard = ({ count, type, displayFormat, isLoading, hasError, onPressI
                 </SkeletonPlaceholder>
             )}
 
-            {isLoading && displayFormat === 'collumn' && (
+            {isLoading && displayFormat === 'column' && (
                 <SkeletonPlaceholder>
                     {[...Array(count)].map((e, i) => (
                         <View key={i}>

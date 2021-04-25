@@ -37,9 +37,7 @@ import api from '../../common/services/api';
 const ViewPlant = ({ navigation }) => {
     const route = useRoute();
 
-    const { item } = route.params;
-
-    const [favoritePlants, setFavoritePlants] = useState([]);
+    const { plant, isUpdate, collection } = route.params;
 
     const [dateTime, setDateTime] = useState(new Date());
 
@@ -48,17 +46,19 @@ const ViewPlant = ({ navigation }) => {
     const [isSubmiting, setIsSubmiting] = useState(false);
 
     useEffect(() => {
-        getFavoritePlants();
+        if(isUpdate) {
+            changeDateTime();
+        }
     }, []);
 
-    const getFavoritePlants = async () => {
-        try {
-            const response = await api.get('/plants_collection');
+    const changeDateTime = () => {
+        const collectionTime = collection.date_time_notification;
 
-            setFavoritePlants(response);
-        } catch(err) {
-            console.log('getFavoritePlants', err);
-        }
+        const splitTime = collectionTime.split(':'); // [time, minute]
+
+        const _dateTime = dateTime.setHours(splitTime[0], splitTime[1]);
+
+        setDateTime(new Date(_dateTime));
     }
 
     const handleGoBackNavigation = () => {
@@ -83,17 +83,19 @@ const ViewPlant = ({ navigation }) => {
 
     const handleSubmit = async () => {
         try {
-            const _favoritePlants = favoritePlants.length + 1;
-
             const data = {
-                id: _favoritePlants + _favoritePlants,
-                plant: item,
+                id: isUpdate
+                    ? collection.id
+                    : Math.floor(Math.random() * 999999), // random number
+                plant,
                 date_time_notification: moment(dateTime).format('HH:mm'),
             };
 
             setIsSubmiting(true);
 
-            await api.post('/plants_collection', data);
+            isUpdate
+                ? await api.put(`/plants_collection/${collection.id}`, data)
+                : await api.post('/plants_collection', data);
 
             setIsSubmiting(false);
 
@@ -118,17 +120,17 @@ const ViewPlant = ({ navigation }) => {
 
                 <HeaderPlantContent>
                     <SvgFromUri
-                        uri={item.photo}
+                        uri={plant.photo}
                         height={120}
                         width={120}
                     />
 
                     <PlantName>
-                        {item.name}
+                        {plant.name}
                     </PlantName>
 
                     <PlantDescription>
-                        {item.about}
+                        {plant.about}
                     </PlantDescription>
                 </HeaderPlantContent>
             </HeaderPlant>
@@ -140,7 +142,7 @@ const ViewPlant = ({ navigation }) => {
                     />
 
                     <WaterNotationText>
-                        {item.water_tips}
+                        {plant.water_tips}
                     </WaterNotationText>
                 </WaterNotationContainer>
 
@@ -188,7 +190,7 @@ const ViewPlant = ({ navigation }) => {
                             width: "100%",
                         }}
                     >
-                        Cadastrar
+                        {isUpdate ? 'Atualizar' : 'Cadastrar'}
                     </Button>
                 </FormContainer>
             </TimeContainer>

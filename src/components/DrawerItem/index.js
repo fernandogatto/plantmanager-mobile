@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { useTheme } from 'react-native-paper';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import {
     DrawerItemContainer,
     TitleContainer,
@@ -7,6 +11,8 @@ import {
 } from './styles';
 
 const DrawerItem = ({ item, selected, onPressItem }) => {
+    const { colors } = useTheme();
+
     return (
         <DrawerItemContainer
             onPress={() => onPressItem(item.routerName)}
@@ -17,7 +23,16 @@ const DrawerItem = ({ item, selected, onPressItem }) => {
                 left: 15,
             }}
         >
-            <TitleContainer>
+            <TitleContainer selected={selected}>
+                <Icon 
+                    name={item.icon}
+                    size={24}
+                    style={{
+                        marginHorizontal: 15,
+                        color: selected ? colors.green_dark : colors.text,
+                    }}
+                />
+
                 <TitleText selected={selected}>
                     {item.title}
                 </TitleText>

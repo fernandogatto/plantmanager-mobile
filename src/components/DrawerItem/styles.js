@@ -8,19 +8,22 @@ export const DrawerItemContainer = styled.TouchableOpacity`
     margin-top: 30px;
 `;
 
-export const TitleContainer = styled.View`
+export const TitleContainer = withTheme(styled.View`
     width: 100%;
-`;
+    background-color: ${props => props.selected
+            ? props.theme.colors.green_light
+            : props.theme.colors.background
+        }
+
+    flex-direction: row;
+    align-items: center;
+`);
 
 export const TitleText = withTheme(styled.Text`
-    padding: 15px;
+    padding: 15px 0;
     font-size: 18px;
     color: ${props => props.selected 
-                ? props.theme.colors.green_dark
-                : props.theme.colors.text
-            }
-    background-color: ${props => props.selected
-                ? props.theme.colors.green_light
-                : props.theme.colors.background
-            }
+        ? props.theme.colors.green_dark
+        : props.theme.colors.text
+    }
 `);
