@@ -86,6 +86,36 @@ You can view the project layout through the links below:
 
 - [Layout](https://www.figma.com/file/IhQRtrOZdu3TrvkPYREzOy/PlantManager) 
 
+Screens:
+
+<img
+  alt="Welcome screen"
+  title="Welcome screen"
+  src=".github/welcome.jpg"
+  width="300"
+/>
+
+<img
+  alt="Menu"
+  title="Menu"
+  src=".github/menu.jpg"
+  width="300"
+/>
+
+<img
+  alt="Collection screen"
+  title="Collection screen"
+  src=".github/collection.jpg"
+  width="300"
+/>
+
+<img
+  alt="Delete option"
+  title="Delete option"
+  src=".github/delete.jpg"
+  width="300"
+/>
+
 ## 👍 Contribute <a name="contribute"/>
 
 - Fork this repository.
