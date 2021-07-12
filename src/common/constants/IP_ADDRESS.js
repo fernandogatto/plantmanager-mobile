@@ -1,3 +1,3 @@
-const IP_ADDRESS = 'http://192.168.0.13';
+const IP_ADDRESS = 'http://YOUR_IP';
 
 export default IP_ADDRESS;
